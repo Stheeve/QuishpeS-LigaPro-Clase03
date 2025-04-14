@@ -7,4 +7,18 @@
     <RootNamespace>QuishpeS_LigaPro_Clase03</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Models\Class.cs" />
+    <Compile Remove="Models\Class1.cs" />
+    <Compile Remove="Models\Imagen.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Imagenes\" />
+  </ItemGroup>
+
 </Project>
