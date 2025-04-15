@@ -20,9 +20,17 @@ namespace QuishpeS_LigaPro_Clase03.Controllers
             var equipo = repository.DevuelveInfoEquipo(Id);
             return View(equipo);
         }
-      
 
-            
+
+        public IActionResult Details(int Id)
+        {
+            EquipoRepository repository = new EquipoRepository();
+            var equipo = repository.DevuelveInfoEquipo(Id);
+            return View(equipo);
+        }
+
+
+
     }
 }
 

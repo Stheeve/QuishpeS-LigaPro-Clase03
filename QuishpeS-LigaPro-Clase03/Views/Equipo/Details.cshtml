@@ -1,0 +1,51 @@
+﻿@model QuishpeS_LigaPro_Clase03.Models.Equipo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center mb-4">Detalles del Equipo</h1>
+
+<div class="card shadow-lg p-4 mb-4 bg-white rounded">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="@Url.Content(Model.ImagenUrl)" alt="Imagen del equipo" class="img-fluid rounded border" style="max-height: 250px;" />
+        </div>
+        <div class="col-md-8">
+            <h4 class="mb-3">Equipo</h4>
+            <hr />
+            <dl class="row">
+
+                <dt class="col-sm-4">ID</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Id)</dd>
+
+                <dt class="col-sm-4">Nombre</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Nombre)</dd>
+
+                <dt class="col-sm-4">Descripcion</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Detalles)</dd>
+
+                <dt class="col-sm-4">Partidos Jugados</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PartidosJugados)</dd>
+
+                <dt class="col-sm-4">Partidos Ganados</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PartidosGanados)</dd>
+
+                <dt class="col-sm-4">Partidos Empatados</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PartidosEmpatados)</dd>
+
+                <dt class="col-sm-4">Partidos Perdidos</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PartidosPerdidos)</dd>
+
+                <dt class="col-sm-4">Puntos</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Puntos)</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary mx-2" })
+    <a asp-action="ListaEquipos" class="btn btn-secondary mx-2">Volver a la Lista</a>
+</div>
+

@@ -5,6 +5,7 @@ namespace QuishpeS_LigaPro_Clase03.Models
     public class Equipo
     {
         [Key]
+        public string Detalles { get; set; }
         public int Id { get; set; }
         [MaxLength(100)]
         //[DisplayName("Nombre Equipo: ")]
@@ -26,6 +27,8 @@ namespace QuishpeS_LigaPro_Clase03.Models
                 return puntos;
             }
         }
+
+        public string ImagenUrl { get; set; }
             
            
 

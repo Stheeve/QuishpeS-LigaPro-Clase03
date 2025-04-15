@@ -6,6 +6,7 @@ namespace QuishpeS_LigaPro_Clase03.Interface
     {
         List<Equipo> DevuelveListadoEquipos();
         Equipo DevuelveInfoEquipo(int Id);
+
         bool CrearEquipo();
         bool ActualizaEquipo();
         bool EliminarEquipo();

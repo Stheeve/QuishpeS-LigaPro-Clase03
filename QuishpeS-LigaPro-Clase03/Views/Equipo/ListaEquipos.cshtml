@@ -6,10 +6,7 @@
 
 <h1>ListaEquipos</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
-
-</p>
+<
 <table class="table">
     <thead>
         <tr>
@@ -63,7 +60,9 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }, new {@class ="btn btn-success"}) 
-             
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+
+
             </td>
         </tr>
 }
