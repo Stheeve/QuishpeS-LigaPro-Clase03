@@ -1,36 +1,71 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QuishpeS_LigaPro_Clase03.Interface;
 using QuishpeS_LigaPro_Clase03.Models;
-using QuishpeS_LigaPro_Clase03.Repositorios;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace QuishpeS_LigaPro_Clase03.Controllers
 {
     public class EquipoController : Controller
     {
+        private readonly IEquipoRepository _equipoRepository;
+
+        
+        public EquipoController(IEquipoRepository equipoRepository)
+        {
+            _equipoRepository = equipoRepository;
+        }
+
+        
         public IActionResult ListaEquipos()
         {
-           EquipoRepository repository = new EquipoRepository();
-            var equipos = repository.DevuelveListadoEquipos();
-            return View(equipos);
+            var equipos = _equipoRepository.DevuelveListadoEquipos();
+            return View(equipos); 
         }
 
-        public IActionResult Edit(int Id)
+        
+        public IActionResult Details(int id)
         {
-            EquipoRepository repository = new EquipoRepository();
-            var equipo = repository.DevuelveInfoEquipo(Id);
-            return View(equipo);
+            var equipo = _equipoRepository.DevuelveInfoEquipo(id);
+            if (equipo == null)
+            {
+                return NotFound();
+            }
+
+            return View(equipo); 
         }
 
-
-        public IActionResult Details(int Id)
+        public IActionResult Edit(int id)
         {
-            EquipoRepository repository = new EquipoRepository();
-            var equipo = repository.DevuelveInfoEquipo(Id);
-            return View(equipo);
+            var equipo = _equipoRepository.DevuelveInfoEquipo(id);
+            if (equipo == null)
+            {
+                return NotFound(); 
+            }
+
+            return View(equipo); +
         }
 
+     +
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, int partidosGanados, int partidosEmpatados, int partidosPerdidos)
+        {
+            if (ModelState.IsValid)
+            {
+                bool updated = _equipoRepository.ActualizaEquipo(id, partidosGanados, partidosEmpatados, partidosPerdidos);
 
+                if (updated)
+                {
+                    return RedirectToAction(nameof(ListaEquipos)); 
+                }
+                else
+                {
+                    return NotFound(); 
+                }
+            }
 
+           
+            return View();
+        }
     }
 }
 
