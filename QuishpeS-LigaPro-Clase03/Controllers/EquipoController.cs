@@ -41,10 +41,10 @@ namespace QuishpeS_LigaPro_Clase03.Controllers
                 return NotFound(); 
             }
 
-            return View(equipo); +
+            return View(equipo); 
         }
 
-     +
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, int partidosGanados, int partidosEmpatados, int partidosPerdidos)

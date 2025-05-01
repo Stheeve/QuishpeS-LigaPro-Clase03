@@ -5,8 +5,8 @@ namespace QuishpeS_LigaPro_Clase03.Models
     public class Equipo
     {
         [Key]
-        public string Detalles { get; set; }
         public int Id { get; set; }
+        public string Detalles { get; set; }
         [MaxLength(100)]
         //[DisplayName("Nombre Equipo: ")]
         [Required]
